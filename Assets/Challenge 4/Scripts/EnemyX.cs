@@ -8,6 +8,11 @@ public class EnemyX : MonoBehaviour
     private Rigidbody enemyRb;
     private GameObject playerGoal;
 
+    void Awake()
+    {
+        playerGoal = GameObject.Find("Player Goal");
+    }
+
     // Start is called before the first frame update
     void Start()
     {
