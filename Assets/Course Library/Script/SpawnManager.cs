@@ -23,7 +23,7 @@ public class SpawnManager : MonoBehaviour
     void Update()
     {
         
-        enemyCount = FindObjectsOfType<Enemy>(FindObjectsSortMode.None).Length;
+        enemyCount = FindObjectsByType<Enemy>(FindObjectsSortMode.None).Length;
 
         if (enemyCount == 0)
         {
