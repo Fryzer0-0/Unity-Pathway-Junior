@@ -7,10 +7,12 @@ public class EnemyX : MonoBehaviour
     public float speed;
     private Rigidbody enemyRb;
     private GameObject playerGoal;
+    private float enemySpeed; // variable to increase enemy speed based on wave number
 
     void Awake()
     {
         playerGoal = GameObject.Find("Player Goal");
+        enemySpeed = GameObject.Find("Spawn Manager").GetComponent<SpawnManagerX>().waveCount * 10;
     }
 
     // Start is called before the first frame update
@@ -24,7 +26,7 @@ public class EnemyX : MonoBehaviour
     {
         // Set enemy direction towards player goal and move there
         Vector3 lookDirection = (playerGoal.transform.position - transform.position).normalized;
-        enemyRb.AddForce(lookDirection * speed * Time.deltaTime);
+        enemyRb.AddForce(lookDirection * (speed + enemySpeed) * Time.deltaTime); // increase speed based on wave number
 
     }
 
