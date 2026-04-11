@@ -8,11 +8,13 @@ using UnityEngine.UI;
 public class GameManagerX : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI timeText;
     public TextMeshProUGUI gameOverText;
     public GameObject titleScreen;
     public Button restartButton; 
 
     public List<GameObject> targetPrefabs;
+    [SerializeField] private float TimeLeft;
 
     private int score;
     private float spawnRate = 1.5f;
@@ -31,6 +33,7 @@ public class GameManagerX : MonoBehaviour
         score = 0;
         UpdateScore(0);
         titleScreen.SetActive(false);
+        StartCoroutine(Countdown());
     }
 
     // While game is active spawn a random target
@@ -47,6 +50,17 @@ public class GameManagerX : MonoBehaviour
             }
             
         }
+    }
+
+    IEnumerator Countdown()
+    {
+        while (TimeLeft > 0)
+        {
+            yield return new WaitForSeconds(1);
+            TimeLeft--;
+            timeText.text = "Time: " + TimeLeft;
+        }
+        GameOver();
     }
 
     // Generate a random spawn position based on a random index from 0 to 3
