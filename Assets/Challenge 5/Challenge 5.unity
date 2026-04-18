@@ -1054,6 +1054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 116231999}
+  timeText: {fileID: 958594757}
   gameOverText: {fileID: 919200876}
   titleScreen: {fileID: 92482018}
   restartButton: {fileID: 1902351379}
@@ -1062,6 +1063,7 @@ MonoBehaviour:
   - {fileID: 1996815852551487035, guid: 11bccc60726374a918b5c73120d47ab3, type: 3}
   - {fileID: 5626452297013284046, guid: c5bbabce5ea79419488492993bfdadf0, type: 3}
   - {fileID: 3867821073191959212, guid: 591e0b0a9b4dd4709ad61b99dabf57ef, type: 3}
+  TimeLeft: 60
   isGameActive: 0
 --- !u!4 &1128873052
 Transform:
